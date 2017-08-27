@@ -1,0 +1,31 @@
+{
+  "name": "pmp-preact",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "eslint src && preact test",
+    "start": "if-env NODE_ENV=production && npm run -s serve || npm run -s dev",
+    "build": "preact build",
+    "serve": "preact serve",
+    "dev": "preact watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "eslintConfig": {
+    "extends": "eslint-config-synacor"
+  },
+  "dependencies": {
+    "lodash": "^4.17.4",
+    "node-sass": "^4.5.3",
+    "preact-cli": "^1.4.1",
+    "preact-redux": "^2.0.2",
+    "recompose": "^0.25.0",
+    "redux": "^3.7.2",
+    "redux-logger": "^3.0.6",
+    "redux-promise-middleware": "4.2.1",
+    "sass-loader": "^6.0.6",
+    "spectre.css": "^0.3.1"
+  }
+}
