@@ -1,7 +1,7 @@
-import { h } from 'preact';
+import { h, render } from 'preact';
 import { Provider } from 'preact-redux';
 
-import './style';
+import './style/index.scss';
 
 import App from './components/app';
 
@@ -14,3 +14,5 @@ export default function Wrapper() {
     </Provider>
   );
 }
+
+render(<Wrapper />, document.body);

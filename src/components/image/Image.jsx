@@ -1,7 +1,5 @@
 import { h } from 'preact';
 
-import style from './style';
-
 export default function Image({ image }) {
   const { filename, meta: { ext }, source } = image;
 
