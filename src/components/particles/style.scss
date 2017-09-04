@@ -1,0 +1,9 @@
+.particles-container {
+	overflow: hidden;
+	position: fixed;
+	top: $header-height;
+	left: 0;
+	width: 100%;
+	height: $page-height;
+	z-index: 0;
+}

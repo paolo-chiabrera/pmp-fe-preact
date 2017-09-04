@@ -4,41 +4,35 @@ import { bindActionCreators } from 'redux';
 
 import { getImages } from '../../actions';
 
-import ImageList from './ImageList';
+import ImageList from './ImageList.jsx';
 
 export const mapStateToProps = state => {
-    const { currentPage, images } = state;
+  const { images } = state;
 
-    return {
-        currentPage,
-        images
-    }
+  return {
+    images
+  };
 };
 
-export const mapDispatchToProps = dispatch => bindActionCreators({ getImages }, dispatch);
+export const mapDispatchToProps = dispatch =>
+  bindActionCreators({ getImages }, dispatch);
 
 const lifecycleMethods = {
-    componentDidMount() {
-        const {
-            currentPage,
-            getImages
-        } = this.props;
+  componentDidMount() {
+    const { pageNumber = 0, getImages } = this.props;
 
-        getImages({ pageNumber: currentPage });
-    },
-    componentWillReceiveProps({ currentPage }) {
-        if (this.props.currentPage === currentPage) {
-            return;
-        }
-
-        this.props.getImages({ pageNumber: currentPage });
+    getImages({ pageNumber });
+  },
+  componentWillReceiveProps({ pageNumber }) {
+    if (this.props.pageNumber === pageNumber) {
+      return;
     }
+
+    this.props.getImages({ pageNumber });
+  }
 };
 
 export default compose(
-    connect(
-        mapStateToProps,
-        mapDispatchToProps
-    ),
-    lifecycle(lifecycleMethods)
+  connect(mapStateToProps, mapDispatchToProps),
+  lifecycle(lifecycleMethods)
 )(ImageList);

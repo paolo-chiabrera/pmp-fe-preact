@@ -1,3 +1,5 @@
+@import "variables";
+
 html, body {
 	height: 100%;
 	width: 100%;
@@ -17,4 +19,23 @@ html, body {
 
 #app {
 	height: 100%;
+	position: relative;
 }
+
+.page-wrapper {
+	background: url(/assets/bright-squares.png) repeat;
+	height: $page-height;
+	left: 0;
+	overflow: auto;
+	position: fixed;
+	top: $header-height;
+	width: 100%;
+	z-index: 1;
+}
+
+@import '../components/header/style';
+@import '../components/footer/style';
+@import '../components/particles/style';
+
+@import '../components/image-list/style';
+@import '../routes/image/style';

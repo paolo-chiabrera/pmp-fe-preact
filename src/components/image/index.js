@@ -1,3 +1,3 @@
-import ImageContainer from './ImageContainer';
+import Image from './Image.jsx';
 
-export default ImageContainer;
+export default Image;

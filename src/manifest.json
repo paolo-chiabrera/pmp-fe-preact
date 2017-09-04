@@ -1,7 +1,7 @@
 {
-  "name": "Preact PWA",
-  "short_name": "Preact PWA",
-  "start_url": "/",
+  "name": "PicMePlease",
+  "short_name": "PicMePlease",
+  "start_url": "/pages/0",
   "display": "standalone",
   "orientation": "portrait",
   "background_color": "#fff",

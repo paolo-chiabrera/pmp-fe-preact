@@ -4,9 +4,8 @@ import { createLogger } from 'redux-logger';
 
 import reducer from './reducer';
 
-export default createStore(reducer, {}, compose(
-    applyMiddleware(
-        createLogger(),
-        promiseMiddleware()
-    )
-));
+export default createStore(
+  reducer,
+  {},
+  compose(applyMiddleware(createLogger(), promiseMiddleware()))
+);

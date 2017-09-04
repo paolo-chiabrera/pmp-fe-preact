@@ -4,21 +4,13 @@ import { bindActionCreators } from 'redux';
 
 import { setPage } from '../../actions';
 
-import Paging from './Paging';
+import Paging from './Paging.jsx';
 
-export const mapStateToProps = state => {
-    const { currentPage } = state;
-
-    return {
-        currentPage
-    }
+export const mapStateToProps = () => {
+  return {};
 };
 
-export const mapDispatchToProps = dispatch => bindActionCreators({ setPage }, dispatch);
+export const mapDispatchToProps = dispatch =>
+  bindActionCreators({ setPage }, dispatch);
 
-export default compose(
-    connect(
-        mapStateToProps,
-        mapDispatchToProps
-    )
-)(Paging);
+export default compose(connect(mapStateToProps, mapDispatchToProps))(Paging);
