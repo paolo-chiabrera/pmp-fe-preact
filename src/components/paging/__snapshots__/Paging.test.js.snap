@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Paging component When the page is 0 should render correctly 1`] = `"[object Object]"`;
+
+exports[`Given a Paging component When the page is 1 should render correctly 1`] = `"[object Object]"`;

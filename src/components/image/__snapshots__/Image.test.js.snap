@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a Image component should render correctly 1`] = `"<div class=\\"image-wrapper\\"><img src=\\"http://images.picmeplease.eu/images/fake.jpg\\" alt=\\"fake\\" /></div>"`;

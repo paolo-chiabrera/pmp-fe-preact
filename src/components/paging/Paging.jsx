@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom';
 
 import { nextPageNumber, prevPageNumber } from '../../helpers';
 
-import './style.scss';
-
-export default function Paging({ pageNumber, setPage }) {
+export default function Paging({ pageNumber = 0 }) {
   return (
     <div class="paging over-footer">
       <Link to={`/pages/${prevPageNumber(pageNumber)}`}>
