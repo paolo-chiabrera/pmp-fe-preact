@@ -1,23 +1,13 @@
 header {
-	position: fixed;
+	background: $background-dark;
+	border-bottom: 2px solid $orange;
+	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+	display: flex;
+	height: $header-height;
 	left: 0;
+	padding: 0;
+	position: fixed;
 	top: 0;
 	width: 100%;
-	height: $header-height;
-	padding: 0;
-	box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
-	z-index: 50;
-	border-bottom: 2px solid $orange;
-
-	background: $background-dark;
-}
-
-header h1 {
-	float: left;
-	margin: 0;
-	padding: 0 15px;
-	font-size: 24px;
-	line-height: 56px;
-	font-weight: 400;
-	color: #FFF;
+	z-index: 1;
 }

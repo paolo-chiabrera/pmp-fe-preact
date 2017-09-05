@@ -1,0 +1,3 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Given a MainTitle component should render correctly 1`] = `"<div class=\\"main-title-wrapper\\"><div class=\\"main-title\\"><span>P</span>ick<span>M</span>e<span>P</span>lease</div><div class=\\"sub-title\\">&quot;Lesser artists borrow, great artists steal&quot;</div></div>"`;

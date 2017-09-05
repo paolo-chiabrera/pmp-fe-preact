@@ -1,0 +1,57 @@
+$logo-dim: 50px;
+
+.crying-logo {
+  height: $logo-dim;
+  position: relative;
+  width: $logo-dim;
+
+  .crying {
+    background: center no-repeat;
+    background-color: white;
+    background-size: cover;
+    border-left: 1px solid #333; 
+    border-right: 1px solid #333; 
+    height: 10px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 50px;
+  }
+
+  .crying-1 {
+    background-image: url("/assets/crying1.png");
+    border-top: 1px solid #333; 
+    border-top-left-radius: 2px;
+    border-top-right-radius: 2px;
+  }
+
+  .crying-2 {
+    background-image: url("/assets/crying2.png");
+    top: 10px;
+  }
+
+  .crying-3 {
+    background-image: url("/assets/crying3.png");
+    top: 20px;
+  }
+
+  .crying-4 {
+    background-image: url("/assets/crying4.png");
+    top: 30px;
+  }
+
+  .crying-5 {
+    background-image: url("/assets/crying5.png");
+    border-bottom: 1px solid #333; 
+    border-bottom-left-radius: 2px;
+    border-bottom-right-radius: 2px;
+    height: 7px;
+    top: 40px;
+  }
+
+  &.shifted {
+    .to-shift {
+      left: 10px;
+    }
+  }
+}

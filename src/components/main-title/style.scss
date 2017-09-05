@@ -1,0 +1,22 @@
+@import '../../style/_variables.scss';
+
+.main-title-wrapper {
+  color: white;
+  margin-left: 4px;
+
+  .main-title {
+    font-size: 1.9em;
+  
+    span {
+      color: $orange;
+      font-weight: bold;
+    }
+  }
+  
+  .sub-title {
+    font-style: italic;
+    font-size: 0.75em;
+    margin-top: -4px;
+    margin-left: 4px;
+  }
+}
