@@ -1,6 +1,5 @@
 import { h } from 'preact';
 import ParticlesJS from 'react-particles-js';
-import { isUndefined } from 'lodash/core';
 
 import { PARTICLES_PARAMS } from '../../constants';
 
@@ -14,16 +13,11 @@ const style = {
   zIndex: 0
 };
 
-const Particles = () => {
+export default function Particles() {
   setTimeout(() => {
-    try {
-      const event = document.createEvent('HTMLEvents');
-      event.initEvent('resize', true, false);
-      document.dispatchEvent(event);
-    } catch (e) {
-      console.error(e);
-      return;
-    }
+    const event = document.createEvent('HTMLEvents');
+    event.initEvent('resize', true, false);
+    document.dispatchEvent(event);
   }, 100);
 
   return (
@@ -31,6 +25,4 @@ const Particles = () => {
       <ParticlesJS params={PARTICLES_PARAMS} style={style} />
     </div>
   );
-};
-
-export default Particles;
+}

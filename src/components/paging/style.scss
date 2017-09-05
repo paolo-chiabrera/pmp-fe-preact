@@ -1,0 +1,23 @@
+@import "../../style/variables";
+
+.paging {
+  align-items: center;
+  color: $white;
+  display: flex;
+  font-size: 1.4em;
+  justify-content: center;
+
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+
+  .current {
+    background: rgba(0, 0, 0, 0.5);
+    border: 2px solid $blue;
+    border-radius: 4px;
+    margin: 0 8px;
+    padding: 0 6px;
+    text-align: center;
+  }
+}

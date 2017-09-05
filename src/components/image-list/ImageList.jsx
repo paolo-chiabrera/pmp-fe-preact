@@ -1,7 +1,5 @@
 import { h } from 'preact';
-import { Link } from 'preact-router/match';
-
-import './style.scss';
+import { Link } from 'react-router-dom';
 
 const IMAGE_SIZE = 150;
 
@@ -10,7 +8,7 @@ export default function ImageList({ images, pageNumber }) {
     const { filename, meta: { ext, label, ratio } } = image;
 
     const imageWrapperStyle = {
-      backgroundImage: `url(http://images.picmeplease.eu/images/${filename}.${ext})`
+      backgroundImage: `url(http://images.picmeplease.eu/images/${filename}_300.${ext})`
     };
 
     const flexGridItemStyle = {
@@ -20,8 +18,8 @@ export default function ImageList({ images, pageNumber }) {
 
     return (
       <div class="flex-grid-item" key={filename} style={flexGridItemStyle}>
-        <Link href={`/images/${filename}`}>
-          <div class="image-wrapper" style={imageWrapperStyle} key={filename}/>
+        <Link to={`/images/${filename}`}>
+          <div class="image-wrapper" style={imageWrapperStyle} key={filename} />
         </Link>
       </div>
     );

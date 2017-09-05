@@ -1,9 +1,11 @@
 $header-height: 50px;
-$footer-height: 36px;
+$footer-height: 40px;
 $page-height: calc(100% - #{ $header-height } - #{ $footer-height });
 
 /* THEME */
 
 $orange: #FFB42C;
+$blue: #3299BB;
+$white: #fff;
 
 $background-dark: url("/assets/nami.png") #444;

@@ -1,24 +1,19 @@
 import { h } from 'preact';
+import { Link } from 'react-router-dom';
 
-import { Link } from 'preact-router/match';
+import { nextPageNumber, prevPageNumber } from '../../helpers';
+
+import './style.scss';
 
 export default function Paging({ pageNumber, setPage }) {
-  let page = parseInt(pageNumber);
-
-  if (!page) {
-    page = 0;
-  }
-
-  const prevPage = page => (page > 0 ? page - 1 : 0);
-
   return (
-    <div className="paging">
-      <p>Current page: {page}</p>
-      <Link disabled={true} href={`/pages/${prevPage(page)}`}>
-        <button>Prev</button>
+    <div class="paging over-footer">
+      <Link to={`/pages/${prevPageNumber(pageNumber)}`}>
+        <div class="icon-arrow-left" />
       </Link>
-      <Link href={`/pages/${page + 1}`}>
-        <button>Next</button>
+      <div class="current">{pageNumber}</div>
+      <Link to={`/pages/${nextPageNumber(pageNumber)}`}>
+        <div class="icon-arrow-right" />
       </Link>
     </div>
   );

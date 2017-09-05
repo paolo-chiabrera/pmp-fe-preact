@@ -1,10 +1,10 @@
 import { h } from 'preact';
-import { Link } from 'preact-router/match';
+import { Link } from 'react-router-dom';
 
 export default function Header() {
   return (
     <header>
-      <Link href="/">
+      <Link to="/">
         <h1>PicMePlease</h1>
       </Link>
     </header>

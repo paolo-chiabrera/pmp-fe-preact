@@ -7,7 +7,7 @@ import App from './components/app';
 
 import store from './store';
 
-export default function Wrapper() {
+function Wrapper() {
   return (
     <Provider store={store}>
       <App />

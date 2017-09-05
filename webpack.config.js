@@ -1,10 +1,14 @@
 const path = require('path');
+const webpack = require('webpack');
+const pack = require('./package.json');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const UglifyJSPlugin = require('uglifyjs-webpack-plugin');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 const ENV = process.env.NODE_ENV || 'development';
-const PROD = ENV === 'production';
+const isProd = ENV === 'production';
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './src/index.html',
@@ -19,42 +23,101 @@ const UglifyJSPluginConfig = new UglifyJSPlugin({
   warningsFilter: () => false
 });
 
-const plugins = [HtmlWebpackPluginConfig];
+const CopyWebpackPluginConfig = new CopyWebpackPlugin([
+  { from: 'src/assets', to: 'assets' }
+]);
 
-const prodPlugins = [UglifyJSPluginConfig];
+const CommonsChunkPluginConfig = new webpack.optimize.CommonsChunkPlugin({
+  name: 'vendor',
+  filename: '[name].[hash].js'
+});
+
+const extractSass = new ExtractTextPlugin({
+  filename: 'bundle.[contenthash].css',
+  disable: false
+});
+
+const plugins = [
+  extractSass,
+  CommonsChunkPluginConfig,
+  HtmlWebpackPluginConfig,
+  CopyWebpackPluginConfig
+];
+
+// const prodPlugins = [UglifyJSPluginConfig];
+const prodPlugins = [];
+
+const vendors = Object.keys(pack.dependencies).filter(
+  name => name !== 'lodash'
+);
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    app: './src/index.js',
+    vendor: vendors
+  },
   output: {
     path: path.resolve(__dirname, 'build'),
-    publicPath: '/',
-    filename: 'bundle.js'
+    filename: 'bundle.[hash].js',
+    publicPath: '/'
   },
+  devtool: 'source-map',
   module: {
     rules: [
-      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/ },
-      { test: /\.jsx$/, loader: 'babel-loader', exclude: /node_modules/ },
+      {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            plugins: ['lodash'],
+            presets: ['env']
+          }
+        }
+      },
+      {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        use: {
+          loader: 'babel-loader',
+          options: {
+            plugins: ['lodash'],
+            presets: ['env']
+          }
+        }
+      },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
       },
       {
         test: /\.scss$/,
-        use: ['style-loader', 'css-loader', 'sass-loader']
+        use: extractSass.extract({
+          fallback: 'style-loader',
+          use: ['css-loader', 'sass-loader']
+        })
       },
       {
         test: /\.json$/,
         use: 'json-loader'
       },
       {
-        test: /\.(xml|html|txt|md)$/,
-        use: 'raw-loader'
-      },
-      {
-        test: /\.(svg|woff2?|ttf|eot|jpe?g|png|gif)(\?.*)?$/i,
-        use: ENV === 'production' ? 'file-loader' : 'url-loader'
+        test: /\.(eot|svg|ttf|woff|woff2)$/,
+        use: {
+          loader: 'url-loader',
+          options: {
+            name: 'fonts/[name].[ext]'
+          }
+        }
       }
     ]
   },
-  plugins: plugins.concat(PROD ? UglifyJSPluginConfig : [])
+  resolve: {
+    alias: {
+      react: 'preact-compat',
+      'react-dom': 'preact-compat',
+      'create-react-class': 'preact-compat/lib/create-react-class'
+    }
+  },
+  plugins: plugins.concat(isProd ? UglifyJSPluginConfig : [])
 };

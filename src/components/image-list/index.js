@@ -1,3 +1,3 @@
-import ImageListContainer from './ImageListContainer';
+import ImageList from './ImageList.jsx';
 
-export default ImageListContainer;
+export default ImageList;
