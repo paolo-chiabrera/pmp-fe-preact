@@ -9,7 +9,7 @@ export default function Layout({ children }) {
     <div id="app">
       <Header />
       <Particles />
-      <div class="page-wrapper">{children}</div>
+      <div id="page-wrapper">{children}</div>
       <Footer />
     </div>
   );
