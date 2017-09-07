@@ -10,10 +10,11 @@ import { getImage } from '../../actions';
 import ImagePage from './ImagePage.jsx';
 
 export const mapStateToProps = state => {
-  const { currentImage } = state;
+  const { currentImage, siteConfig } = state;
 
   return {
-    image: currentImage
+    image: currentImage,
+    siteConfig
   };
 };
 

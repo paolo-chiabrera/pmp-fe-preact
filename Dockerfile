@@ -6,7 +6,7 @@ ADD package.json /tmp/package.json
 
 ADD yarn.lock /tmp/yarn.lock
 
-RUN cd /tmp && yarn
+RUN cd /tmp && yarn install --production=false
 
 RUN mkdir -p /home/app && cp -a /tmp/node_modules /home/app
 

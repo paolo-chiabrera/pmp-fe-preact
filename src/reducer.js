@@ -4,7 +4,11 @@ import { IMAGE_DATA, IMAGES_DATA } from './constants';
 
 export const initialState = {
   currentImage: {},
-  images: []
+  images: [],
+  siteConfig: {
+    baseUrl: 'http://pmp.local',
+    baseUrlImages: 'http://images.picmeplease.eu'
+  }
 };
 
 export default function reducer(state = initialState, action = {}) {

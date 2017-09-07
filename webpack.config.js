@@ -44,8 +44,7 @@ const plugins = [
   CopyWebpackPluginConfig
 ];
 
-// const prodPlugins = [UglifyJSPluginConfig];
-const prodPlugins = [];
+const prodPlugins = [UglifyJSPluginConfig];
 
 const vendors = Object.keys(pack.dependencies).filter(
   name => name !== 'lodash'

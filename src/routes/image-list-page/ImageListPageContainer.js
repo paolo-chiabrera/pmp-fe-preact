@@ -12,10 +12,11 @@ import { nextPageNumber, prevPageNumber } from '../../helpers';
 import ImageListPage from './ImageListPage.jsx';
 
 export const mapStateToProps = state => {
-  const { images } = state;
+  const { images, siteConfig } = state;
 
   return {
-    images
+    images,
+    siteConfig
   };
 };
 
@@ -37,7 +38,7 @@ const lifecycleMethods = {
   }
 };
 
-const withPropsMapper = ({ history, match }) => {
+const withPropsMapper = ({ history, location, match }) => {
   const pageNumber = get(match, 'params.pageNumber', 0);
 
   const goNextPage = () => history.push(`/pages/${nextPageNumber(pageNumber)}`);
