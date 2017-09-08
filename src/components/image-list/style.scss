@@ -1,3 +1,10 @@
+$breakpoint-tablet: 767px;
+$breakpoint-desktop: 1279px;
+
+$size: 200px;
+$size-tablet: 160px;
+$size-desktop: 120px;
+
 .flex-grid {
   align-items: center;
   display: flex;
@@ -12,7 +19,44 @@
     background-repeat: no-repeat;
     background-size: cover;
     margin: 4px;
+
+    height: $size;
+    width: $size;
+
+    &.size-2 {
+      width: 2 * $size;
+    }
+
+    &.size-3 {
+      width: 3 * $size;
+    }
+
+    @media (min-width: $breakpoint-tablet) {
+      height: $size-tablet;
+      width: $size-tablet;
+
+      &.size-2 {
+        width: 2 * $size-tablet;
+      }
   
+      &.size-3 {
+        width: 3 * $size-tablet;
+      }
+    }
+
+    @media (min-width: $breakpoint-desktop) {
+      height: $size-desktop;
+      width: $size-desktop;
+
+      &.size-2 {
+        width: 2 * $size-desktop;
+      }
+  
+      &.size-3 {
+        width: 3 * $size-desktop;
+      }
+    }
+
     .image-wrapper {
       background-color: transparent;
       background-position: center;

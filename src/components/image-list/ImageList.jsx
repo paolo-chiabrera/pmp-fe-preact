@@ -3,16 +3,9 @@ import { Link } from 'react-router-dom';
 
 import LazyLoader from '../lazy-loader';
 
-const IMAGE_SIZE = 150;
-
 export default function ImageList({ images, pageNumber }) {
   const imagesList = images.map(image => {
     const { filename, meta: { ext, label, ratio } } = image;
-
-    const flexGridItemStyle = {
-      height: `${IMAGE_SIZE}px`,
-      width: `${ratio * IMAGE_SIZE}px`
-    };
 
     const imageWrapperStyle = {
       backgroundImage: `url(http://images.picmeplease.eu/images/${filename}_300.${ext})`
@@ -20,11 +13,10 @@ export default function ImageList({ images, pageNumber }) {
 
     return (
       <div
-        class="flex-grid-item"
+        class={`flex-grid-item size-${ratio}`}
         key={`flex-grid-item-${filename}`}
-        style={flexGridItemStyle}
       >
-        <LazyLoader container="page-wrapper" id={filename} offset={IMAGE_SIZE}>
+        <LazyLoader container="page-wrapper" id={filename}>
           <Link to={`/images/${filename}`}>
             <div
               class="image-wrapper"
