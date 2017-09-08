@@ -97,6 +97,14 @@ module.exports = {
         })
       },
       {
+        test: /\.modernizrrc.js$/,
+        use: ['modernizr-loader']
+      },
+      {
+        test: /\.modernizrrc(\.json)?$/,
+        use: ['modernizr-loader', 'json-loader']
+      },
+      {
         test: /\.json$/,
         use: 'json-loader'
       },
@@ -115,7 +123,8 @@ module.exports = {
     alias: {
       react: 'preact-compat',
       'react-dom': 'preact-compat',
-      'create-react-class': 'preact-compat/lib/create-react-class'
+      'create-react-class': 'preact-compat/lib/create-react-class',
+      modernizr$: path.resolve(__dirname, '.modernizrrc')
     }
   },
   plugins: plugins.concat(isProd ? UglifyJSPluginConfig : [])

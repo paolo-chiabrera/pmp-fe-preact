@@ -24,7 +24,7 @@ export default function ImageList({ images, pageNumber }) {
         key={`flex-grid-item-${filename}`}
         style={flexGridItemStyle}
       >
-        <LazyLoader container="page-wrapper" id={filename} size={IMAGE_SIZE}>
+        <LazyLoader container="page-wrapper" id={filename} offset={IMAGE_SIZE}>
           <Link to={`/images/${filename}`}>
             <div
               class="image-wrapper"
