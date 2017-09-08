@@ -2,6 +2,11 @@ $header-height: 50px;
 $footer-height: 40px;
 $page-height: calc(100% - #{ $header-height } - #{ $footer-height });
 
+/* RESPONSIVE */
+
+$breakpoint-tablet: 767px;
+$breakpoint-desktop: 1279px;
+
 /* THEME */
 
 $orange: #FFB42C;
