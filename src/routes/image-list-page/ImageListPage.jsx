@@ -19,7 +19,7 @@ export default function ImageListPage({
     { property: 'og:url', content: `${baseUrl}${location.pathname}` },
     {
       property: 'og:image',
-      content: `${baseUrl}/assets/preview.png`
+      content: `${baseUrl}/assets/preview.jpg`
     },
     { property: 'og:image:height', content: 315 },
     { property: 'og:image:width', content: 851 }
