@@ -15,9 +15,9 @@ $size-desktop: 150px;
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    margin: 4px;
-
     height: $size;
+    margin: 4px;
+    position: relative;
     width: $size;
 
     &.size-2 {
@@ -61,7 +61,9 @@ $size-desktop: 150px;
       background-size: cover;
       box-shadow: 0 0 6px rgba(0, 0, 0, 0.5);
       height: 100%;
+      position: relative;
       width: 100%;
+      z-index: 1;
 
       &:hover {
         box-shadow: 0 0 2px rgba(0, 0, 0, 0.7);
