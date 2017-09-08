@@ -5,7 +5,7 @@ import reducer from './reducer';
 
 const middlewares = [promiseMiddleware()];
 
-if (process.env.NODE_ENV !== 'production') {
+if (process.env.NODE_ENV === 'development') {
   const { createLogger } = require(`redux-logger`);
 
   middlewares.push(createLogger());
