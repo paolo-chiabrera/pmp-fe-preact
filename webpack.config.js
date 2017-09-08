@@ -37,7 +37,14 @@ const extractSass = new ExtractTextPlugin({
   disable: false
 });
 
+const DefinePluginConfig = new webpack.DefinePlugin({
+  'process.env': {
+    NODE_ENV: JSON.stringify(ENV)
+  }
+});
+
 const plugins = [
+  DefinePluginConfig,
   extractSass,
   CommonsChunkPluginConfig,
   HtmlWebpackPluginConfig,
