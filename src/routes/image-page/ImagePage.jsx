@@ -14,7 +14,6 @@ export default function ImagePage({ history, image, location, siteConfig }) {
       property: 'og:image',
       content: `${baseUrlImages}/images/${filename}.${ext}`
     },
-    { property: 'og:image:type', content: `image/${format}` },
     { property: 'og:image:height', content: height },
     { property: 'og:image:width', content: width }
   ];

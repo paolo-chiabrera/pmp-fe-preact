@@ -19,9 +19,8 @@ export default function ImageListPage({
     { property: 'og:url', content: `${baseUrl}${location.pathname}` },
     {
       property: 'og:image',
-      content: `${baseUrl}/assets/preview.jpg`
+      content: `${baseUrl}/assets/preview.png`
     },
-    { property: 'og:image:type', content: `image/jpeg` },
     { property: 'og:image:height', content: 315 },
     { property: 'og:image:width', content: 851 }
   ];
