@@ -6,7 +6,7 @@ export const initialState = {
   currentImage: {},
   images: [],
   siteConfig: {
-    baseUrl: 'http://pmp.local',
+    baseUrl: document.location.origin,
     baseUrlImages: 'http://images.picmeplease.eu'
   }
 };
