@@ -2,6 +2,8 @@ FROM quay.io/d3lirium/node-alpine-with-nginx:latest
 
 MAINTAINER Paolo Chiabrera <paolo.chiabrera@gmail.com>
 
+ENV NODE_ENV=production
+
 ADD package.json /tmp/package.json
 
 ADD yarn.lock /tmp/yarn.lock
